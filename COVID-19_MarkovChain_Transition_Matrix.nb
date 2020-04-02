@@ -1,0 +1,1198 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 12.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     65250,       1190]
+NotebookOptionsPosition[     63884,       1161]
+NotebookOutlinePosition[     64223,       1176]
+CellTagsIndexPosition[     64180,       1173]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"data", " ", "is", " ", "from", " ", 
+     RowBox[{"https", ":"}]}], "//", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"www", ".", "ncbi", ".", "nlm", ".", "nih", ".", "gov"}], "/", 
+      "genome"}], "/", "10320"}]}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"seq", "=", 
+     RowBox[{
+     "{", "\"\<1 atattaggtt tttacctacc caggaaaagc caaccaacct cgatctcttg \
+tagatctgtt\n       61 ctctaaacga actttaaaat ctgtgtagct gtcgctcggc tgcatgccta \
+gtgcacctac\n      121 gcagtataaa caataataaa ttttactgtc gttgacaaga aacgagtaac \
+tcgtccctct\n      181 tctgcagact gcttacggtt tcgtccgtgt tgcagtcgat catcagcata \
+cctaggtttc\n      241 gtccgggtgt gaccgaaagg taagatggag agccttgttc ttggtgtcaa \
+cgagaaaaca\n      301 cacgtccaac tcagtttgcc tgtccttcag gttagagacg tgctagtgcg \
+tggcttcggg\n      361 gactctgtgg aagaggccct atcggaggca cgtgaacacc tcaaaaatgg \
+cacttgtggt\n      421 ctagtagagc tggaaaaagg cgtactgccc cagcttgaac agccctatgt \
+gttcattaaa\n      481 cgttctgatg ccttaagcac caatcacggc cacaaggtcg ttgagctggt \
+tgcagaaatg\n      541 gacggcattc agtacggtcg tagcggtata acactgggag tactcgtgcc \
+acatgtgggc\n      601 gaaaccccaa ttgcataccg caatgttctt cttcgtaaga acggtaataa \
+gggagccggt\n      661 ggtcatagct atggcatcga tctaaagtct tatgacttag gtgacgagct \
+tggcactgat\n      721 cccattgaag attatgaaca aaactggaac actaagcatg gcagtggtgc \
+actccgtgaa\n      781 ctcactcgtg agctcaatgg aggtgcagtc actcgctatg tcgacaacaa \
+tttctgtggc\n      841 ccagatgggt accctcttga ttgcatcaaa gattttctcg cacgcgcggg \
+caagtcaatg\n      901 tgcactcttt ccgaacaact tgattacatc gagtcgaaga gaggtgtcta \
+ctgctgccgt\n      961 gaccatgagc atgaaattgc ctggttcact gagcgctctg ataagagcta \
+cgagcaccag\n     1021 acacccttcg aaattaagag tgccaagaaa tttgacactt tcaaagggga \
+atgcccaaag\n     1081 tttgtgtttc ctcttaactc aaaagtcaaa gtcattcaac cacgtgttga \
+aaagaaaaag\n     1141 actgagggtt tcatggggcg tatacgctct gtgtaccctg ttgcatctcc \
+acaggagtgt\n     1201 aacaatatgc acttgtctac cttgatgaaa tgtaatcatt gcgatgaagt \
+ttcatggcag\n     1261 acgtgcgact ttctgaaagc cacttgtgaa cattgtggca ctgaaaattt \
+agttattgaa\n     1321 ggacctacta catgtgggta cctacctact aatgctgtag tgaaaatgcc \
+atgtcctgcc\n     1381 tgtcaagacc cagagattgg acctgagcat agtgttgcag attatcacaa \
+ccactcaaac\n     1441 attgaaactc gactccgcaa gggaggtagg actagatgtt ttggaggctg \
+tgtgtttgcc\n     1501 tatgttggct gctataataa gcgtgcctac tgggttcctc gtgctagtgc \
+tgatattggc\n     1561 tcaggccata ctggcattac tggtgacaat gtggagacct tgaatgagga \
+tctccttgag\n     1621 atactgagtc gtgaacgtgt taacattaac attgttggcg attttcattt \
+gaatgaagag\n     1681 gttgccatca ttttggcatc tttctctgct tctacaagtg cctttattga \
+cactataaag\n     1741 agtcttgatt acaagtcttt caaaaccatt gttgagtcct gcggtaacta \
+taaagttacc\n     1801 aagggaaagc ccgtaaaagg tgcttggaac attggacaac agagatcagt \
+tttaacacca\n     1861 ctgtgtggtt ttccctcaca ggctgctggt gttatcagat caatttttgc \
+gcgcacactt\n     1921 gatgcagcaa accactcaat tcctgatttg caaagagcag ctgtcaccat \
+acttgatggt\n     1981 atttctgaac agtcattacg tcttgtcgac gccatggttt atacttcaga \
+cctgctcacc\n     2041 aacagtgtca ttattatggc atatgtaact ggtggtcttg tacaacagac \
+ttctcagtgg\n     2101 ttgtctaatc ttttgggcac tactgttgaa aaactcaggc ctatctttga \
+atggattgag\n     2161 gcgaaactta gtgcaggagt tgaatttctc aaggatgctt gggagattct \
+caaatttctc\n     2221 attacaggtg tttttgacat cgtcaagggt caaatacagg ttgcttcaga \
+taacatcaag\n     2281 gattgtgtaa aatgcttcat tgatgttgtt aacaaggcac tcgaaatgtg \
+cattgatcaa\n     2341 gtcactatcg ctggcgcaaa gttgcgatca ctcaacttag gtgaagtctt \
+catcgctcaa\n     2401 agcaagggac tttaccgtca gtgtatacgt ggcaaggagc agctgcaact \
+actcatgcct\n     2461 cttaaggcac caaaagaagt aacctttctt gaaggtgatt cacatgacac \
+agtacttacc\n     2521 tctgaggagg ttgttctcaa gaacggtgaa ctcgaagcac tcgagacgcc \
+cgttgatagc\n     2581 ttcacaaatg gagctatcgt tggcacacca gtctgtgtaa atggcctcat \
+gctcttagag\n     2641 attaaggaca aagaacaata ctgcgcattg tctcctggtt tactggctac \
+aaacaatgtc\n     2701 tttcgcttaa aagggggtgc accaattaaa ggtgtaacct ttggagaaga \
+tactgtttgg\n     2761 gaagttcaag gttacaagaa tgtgagaatc acatttgagc ttgatgaacg \
+tgttgacaaa\n     2821 gtgcttaatg aaaagtgctc tgtctacact gttgaatccg gtaccgaagt \
+tactgagttt\n     2881 gcatgtgttg tagcagaggc tgttgtgaag actttacaac cagtttctga \
+tctccttacc\n     2941 aacatgggta ttgatcttga tgagtggagt gtagctacat tctacttatt \
+tgatgatgct\n     3001 ggtgaagaaa acttttcatc acgtatgtat tgttcctttt accctccaga \
+tgaggaagaa\n     3061 gaggacgatg cagagtgtga ggaagaagaa attgatgaaa cctgtgaaca \
+tgagtacggt\n     3121 acagaggatg attatcaagg tctccctctg gaatttggtg cctcagctga \
+aacagttcga\n     3181 gttgaggaag aagaagagga agactggctg gatgatacta ctgagcaatc \
+agagattgag\n     3241 ccagaaccag aacctacacc tgaagaacca gttaatcagt ttactggtta \
+tttaaaactt\n     3301 actgacaatg ttgccattaa atgtgttgac atcgttaagg aggcacaaag \
+tgctaatcct\n     3361 atggtgattg taaatgctgc taacatacac ctgaaacatg gtggtggtgt \
+agcaggtgca\n     3421 ctcaacaagg caaccaatgg tgccatgcaa aaggagagtg atgattacat \
+taagctaaat\n     3481 ggccctctta cagtaggagg gtcttgtttg ctttctggac ataatcttgc \
+taagaagtgt\n     3541 ctgcatgttg ttggacctaa cctaaatgca ggtgaggaca tccagcttct \
+taaggcagca\n     3601 tatgaaaatt tcaattcaca ggacatctta cttgcaccat tgttgtcagc \
+aggcatattt\n     3661 ggtgctaaac cacttcagtc tttacaagtg tgcgtgcaga cggttcgtac \
+acaggtttat\n     3721 attgcagtca atgacaaagc tctttatgag caggttgtca tggattatct \
+tgataacctg\n     3781 aagcctagag tggaagcacc taaacaagag gagccaccaa acacagaaga \
+ttccaaaact\n     3841 gaggagaaat ctgtcgtaca gaagcctgtc gatgtgaagc caaaaattaa \
+ggcctgcatt\n     3901 gatgaggtta ccacaacact ggaagaaact aagtttctta ccaataagtt \
+actcttgttt\n     3961 gctgatatca atggtaagct ttaccatgat tctcagaaca tgcttagagg \
+tgaagatatg\n     4021 tctttccttg agaaggatgc accttacatg gtaggtgatg ttatcactag \
+tggtgatatc\n     4081 acttgtgttg taataccctc caaaaaggct ggtggcacta ctgagatgct \
+ctcaagagct\n     4141 ttgaagaaag tgccagttga tgagtatata accacgtacc ctggacaagg \
+atgtgctggt\n     4201 tatacacttg aggaagctaa gactgctctt aagaaatgca aatctgcatt \
+ttatgtacta\n     4261 ccttcagaag cacctaatgc taaggaagag attctaggaa ctgtatcctg \
+gaatttgaga\n     4321 gaaatgcttg ctcatgctga agagacaaga aaattaatgc ctatatgcat \
+ggatgttaga\n     4381 gccataatgg caaccatcca acgtaagtat aaaggaatta aaattcaaga \
+gggcatcgtt\n     4441 gactatggtg tccgattctt cttttatact agtaaagagc ctgtagcttc \
+tattattacg\n     4501 aagctgaact ctctaaatga gccgcttgtc acaatgccaa ttggttatgt \
+gacacatggt\n     4561 tttaatcttg aagaggctgc gcgctgtatg cgttctctta aagctcctgc \
+cgtagtgtca\n     4621 gtatcatcac cagatgctgt tactacatat aatggatacc tcacttcgtc \
+atcaaagaca\n     4681 tctgaggagc actttgtaga aacagtttct ttggctggct cttacagaga \
+ttggtcctat\n     4741 tcaggacagc gtacagagtt aggtgttgaa tttcttaagc gtggtgacaa \
+aattgtgtac\n     4801 cacactctgg agagccccgt cgagtttcat cttgacggtg aggttctttc \
+acttgacaaa\n     4861 ctaaagagtc tcttatccct gcgggaggtt aagactataa aagtgttcac \
+aactgtggac\n     4921 aacactaatc tccacacaca gcttgtggat atgtctatga catatggaca \
+gcagtttggt\n     4981 ccaacatact tggatggtgc tgatgttaca aaaattaaac ctcatgtaaa \
+tcatgagggt\n     5041 aagactttct ttgtactacc tagtgatgac acactacgta gtgaagcttt \
+cgagtactac\n     5101 catactcttg atgagagttt tcttggtagg tacatgtctg ctttaaacca \
+cacaaagaaa\n     5161 tggaaatttc ctcaagttgg tggtttaact tcaattaaat gggctgataa \
+caattgttat\n     5221 ttgtctagtg ttttattagc acttcaacag cttgaagtca aattcaatgc \
+accagcactt\n     5281 caagaggctt attatagagc ccgtgctggt gatgctgcta acttttgtgc \
+actcatactc\n     5341 gcttacagta ataaaactgt tggcgagctt ggtgatgtca gagaaactat \
+gacccatctt\n     5401 ctacagcatg ctaatttgga atctgcaaag cgagttctta atgtggtgtg \
+taaacattgt\n     5461 ggtcagaaaa ctactacctt aacgggtgta gaagctgtga tgtatatggg \
+tactctatct\n     5521 tatgataatc ttaagacagg tgtttccatt ccatgtgtgt gtggtcgtga \
+tgctacacaa\n     5581 tatctagtac aacaagagtc ttcttttgtt atgatgtctg caccacctgc \
+tgagtataaa\n     5641 ttacagcaag gtacattctt atgtgcgaat gagtacactg gtaactatca \
+gtgtggtcat\n     5701 tacactcata taactgctaa ggagaccctc tatcgtattg acggagctca \
+ccttacaaag\n     5761 atgtcagagt acaaaggacc agtgactgat gttttctaca aggaaacatc \
+ttacactaca\n     5821 accatcaagc ctgtgtcgta taaactcgat ggagttactt acacagagat \
+tgaaccaaaa\n     5881 ttggatgggt attataaaaa ggataatgct tactatacag agcagcctat \
+agaccttgta\n     5941 ccaactcaac cattaccaaa tgcgagtttt gataatttca aactcacatg \
+ttctaacaca\n     6001 aaatttgctg atgatttaaa tcaaatgaca ggcttcacaa agccagcttc \
+acgagagcta\n     6061 tctgtcacat tcttcccaga cttgaatggc gatgtagtgg ctattgacta \
+tagacactat\n     6121 tcagcgagtt tcaagaaagg tgctaaatta ctgcataagc caattgtttg \
+gcacattaac\n     6181 caggctacaa ccaagacaac gttcaaacca aacacttggt gtttacgttg \
+tctttggagt\n     6241 acaaagccag tagatacttc aaattcattt gaagttctgg cagtagaaga \
+cacacaagga\n     6301 atggacaatc ttgcttgtga aagtcaacaa cccacctctg aagaagtagt \
+ggaaaatcct\n     6361 accatacaga aggaagtcat agagtgtgac gtgaaaacta ccgaagttgt \
+aggcaatgtc\n     6421 atacttaaac catcagatga aggtgttaaa gtaacacaag agttaggtca \
+tgaggatctt\n     6481 atggctgctt atgtggaaaa cacaagcatt accattaaga aacctaatga \
+gctttcacta\n     6541 gccttaggtt taaaaacaat tgccactcat ggtattgctg caattaatag \
+tgttccttgg\n     6601 agtaaaattt tggcttatgt caaaccattc ttaggacaag cagcaattac \
+aacatcaaat\n     6661 tgcgctaaga gattagcaca acgtgtgttt aacaattata tgccttatgt \
+gtttacatta\n     6721 ttgttccaat tgtgtacttt tactaaaagt accaattcta gaattagagc \
+ttcactacct\n     6781 acaactattg ctaaaaatag tgttaagagt gttgctaaat tatgtttgga \
+tgccggcatt\n     6841 aattatgtga agtcacccaa attttctaaa ttgttcacaa tcgctatgtg \
+gctattgttg\n     6901 ttaagtattt gcttaggttc tctaatctgt gtaactgctg cttttggtgt \
+actcttatct\n     6961 aattttggtg ctccttctta ttgtaatggc gttagagaat tgtatcttaa \
+ttcgtctaac\n     7021 gttactacta tggatttctg tgaaggttct tttccttgca gcatttgttt \
+aagtggatta\n     7081 gactcccttg attcttatcc agctcttgaa accattcagg tgacgatttc \
+atcgtacaag\n     7141 ctagacttga caattttagg tctggccgct gagtgggttt tggcatatat \
+gttgttcaca\n     7201 aaattctttt atttattagg tctttcagct ataatgcagg tgttctttgg \
+ctattttgct\n     7261 agtcatttca tcagcaattc ttggctcatg tggtttatca ttagtattgt \
+acaaatggca\n     7321 cccgtttctg caatggttag gatgtacatc ttctttgctt ctttctacta \
+catatggaag\n     7381 agctatgttc atatcatgga tggttgcacc tcttcgactt gcatgatgtg \
+ctataagcgc\n     7441 aatcgtgcca cacgcgttga gtgtacaact attgttaatg gcatgaagag \
+atctttctat\n     7501 gtctatgcaa atggaggccg tggcttctgc aagactcaca attggaattg \
+tctcaattgt\n     7561 gacacatttt gcactggtag tacattcatt agtgatgaag ttgctcgtga \
+tttgtcactc\n     7621 cagtttaaaa gaccaatcaa ccctactgac cagtcatcgt atattgttga \
+tagtgttgct\n     7681 gtgaaaaatg gcgcgcttca cctctacttt gacaaggctg gtcaaaagac \
+ctatgagaga\n     7741 catccgctct cccattttgt caatttagac aatttgagag ctaacaacac \
+taaaggttca\n     7801 ctgcctatta atgtcatagt ttttgatggc aagtccaaat gcgacgagtc \
+tgcttctaag\n     7861 tctgcttctg tgtactacag tcagctgatg tgccaaccta ttctgttgct \
+tgaccaagct\n     7921 cttgtatcag acgttggaga tagtactgaa gtttccgtta agatgtttga \
+tgcttatgtc\n     7981 gacacctttt cagcaacttt tagtgttcct atggaaaaac ttaaggcact \
+tgttgctaca\n     8041 gctcacagcg agttagcaaa gggtgtagct ttagatggtg tcctttctac \
+attcgtgtca\n     8101 gctgcccgac aaggtgttgt tgataccgat gttgacacaa aggatgttat \
+tgaatgtctc\n     8161 aaactttcac atcactctga cttagaagtg acaggtgaca gttgtaacaa \
+tttcatgctc\n     8221 acctataata aggttgaaaa catgacgccc agagatcttg gcgcatgtat \
+tgactgtaat\n     8281 gcaaggcata tcaatgccca agtagcaaaa agtcacaatg tttcactcat \
+ctggaatgta\n     8341 aaagactaca tgtctttatc tgaacagctg cgtaaacaaa ttcgtagtgc \
+tgccaagaag\n     8401 aacaacatac cttttagact aacttgtgct acaactagac aggttgtcaa \
+tgtcataact\n     8461 actaaaatct cactcaaggg tggtaagatt gttagtactt gttttaaact \
+tatgcttaag\n     8521 gccacattat tgtgcgttct tgctgcattg gtttgttata tcgttatgcc \
+agtacataca\n     8581 ttgtcaatcc atgatggtta cacaaatgaa atcattggtt acaaagccat \
+tcaggatggt\n     8641 gtcactcgtg acatcatttc tactgatgat tgttttgcaa ataaacatgc \
+tggttttgac\n     8701 gcatggttta gccagcgtgg tggttcatac aaaaatgaca aaagctgccc \
+tgtagtagct\n     8761 gctatcatta caagagagat tggtttcata gtgcctggct taccgggtac \
+tgtgctgaga\n     8821 gcaatcaatg gtgacttctt gcattttcta cctcgtgttt ttagtgctgt \
+tggcaacatt\n     8881 tgctacacac cttccaaact cattgagtat agtgattttg ctacctctgc \
+ttgcgttctt\n     8941 gctgctgagt gtacaatttt taaggatgct atgggcaaac ctgtgccata \
+ttgttatgac\n     9001 actaatttgc tagagggttc tatttcttat agtgagcttc gtccagacac \
+tcgttatgtg\n     9061 cttatggatg gttccatcat acagtttcct aacacttacc tggagggttc \
+tgttagagta\n     9121 gtaacaactt ttgatgctga gtactgtaga catggtacat gcgaaaggtc \
+agaagtaggt\n     9181 atttgcctat ctaccagtgg tagatgggtt cttaataatg agcattacag \
+agctctatca\n     9241 ggagttttct gtggtgttga tgcgatgaat ctcatagcta acatctttac \
+tcctcttgtg\n     9301 caacctgtgg gtgctttaga tgtgtctgct tcagtagtgg ctggtggtat \
+tattgccata\n     9361 ttggtgactt gtgctgccta ctactttatg aaattcagac gtgtttttgg \
+tgagtacaac\n     9421 catgttgttg ctgctaatgc acttttgttt ttgatgtctt tcactatact \
+ctgtctggta\n     9481 ccagcttaca gctttctgcc gggagtctac tcagtctttt acttgtactt \
+gacattctat\n     9541 ttcaccaatg atgtttcatt cttggctcac cttcaatggt ttgccatgtt \
+ttctcctatt\n     9601 gtgccttttt ggataacagc aatctatgta ttctgtattt ctctgaagca \
+ctgccattgg\n     9661 ttctttaaca actatcttag gaaaagagtc atgtttaatg gagttacatt \
+tagtaccttc\n     9721 gaggaggctg ctttgtgtac ctttttgctc aacaaggaaa tgtacctaaa \
+attgcgtagc\n     9781 gagacactgt tgccacttac acagtataac aggtatcttg ctctatataa \
+caagtacaag\n     9841 tatttcagtg gagccttaga tactaccagc tatcgtgaag cagcttgctg \
+ccacttagca\n     9901 aaggctctaa atgactttag caactcaggt gctgatgttc tctaccaacc \
+accacagaca\n     9961 tcaatcactt ctgctgttct gcagagtggt tttaggaaaa tggcattccc \
+gtcaggcaaa\n    10021 gttgaagggt gcatggtaca agtaacctgt ggaactacaa ctcttaatgg \
+attgtggttg\n    10081 gatgacacag tatactgtcc aagacatgtc atttgcacag cagaagacat \
+gcttaatcct\n    10141 aactatgaag atctgctcat tcgcaaatcc aaccatagct ttcttgttca \
+ggctggcaat\n    10201 gttcaacttc gtgttattgg ccattctatg caaaattgtc tgcttaggct \
+taaagttgat\n    10261 acttctaacc ctaagacacc caagtataaa tttgtccgta tccaacctgg \
+tcaaacattt\n    10321 tcagttctag catgctacaa tggttcacca tctggtgttt atcagtgtgc \
+catgagacct\n    10381 aatcatacca ttaaaggttc tttccttaat ggatcatgtg gtagtgttgg \
+ttttaacatt\n    10441 gattatgatt gcgtgtcttt ctgctatatg catcatatgg agcttccaac \
+aggagtacac\n    10501 gctggtactg acttagaagg taaattctat ggtccatttg ttgacagaca \
+aactgcacag\n    10561 gctgcaggta cagacacaac cataacatta aatgttttgg catggctgta \
+tgctgctgtt\n    10621 atcaatggtg ataggtggtt tcttaataga ttcaccacta ctttgaatga \
+ctttaacctt\n    10681 gtggcaatga agtacaacta tgaacctttg acacaagatc atgttgacat \
+attgggacct\n    10741 ctttctgctc aaacaggaat tgccgtctta gatatgtgtg ctgctttgaa \
+agagctgctg\n    10801 cagaatggta tgaatggtcg tactatcctt ggtagcacta ttttagaaga \
+tgagtttaca\n    10861 ccatttgatg ttgttagaca atgctctggt gttaccttcc aaggtaagtt \
+caagaaaatt\n    10921 gttaagggca ctcatcattg gatgctttta actttcttga catcactatt \
+gattcttgtt\n    10981 caaagtacac agtggtcact gtttttcttt gtttacgaga atgctttctt \
+gccatttact\n    11041 cttggtatta tggcaattgc tgcatgtgct atgctgcttg ttaagcataa \
+gcacgcattc\n    11101 ttgtgcttgt ttctgttacc ttctcttgca acagttgctt actttaatat \
+ggtctacatg\n    11161 cctgctagct gggtgatgcg tatcatgaca tggcttgaat tggctgacac \
+tagcttgtct\n    11221 ggttataggc ttaaggattg tgttatgtat gcttcagctt tagttttgct \
+tattctcatg\n    11281 acagctcgca ctgtttatga tgatgctgct agacgtgttt ggacactgat \
+gaatgtcatt\n    11341 acacttgttt acaaagtcta ctatggtaat gctttagatc aagctatttc \
+catgtgggcc\n    11401 ttagttattt ctgtaacctc taactattct ggtgtcgtta cgactatcat \
+gtttttagct\n    11461 agagctatag tgtttgtgtg tgttgagtat tacccattgt tatttattac \
+tggcaacacc\n    11521 ttacagtgta tcatgcttgt ttattgtttc ttaggctatt gttgctgctg \
+ctactttggc\n    11581 cttttctgtt tactcaaccg ttacttcagg cttactcttg gtgtttatga \
+ctacttggtc\n    11641 tctacacaag aatttaggta tatgaactcc caggggcttt tgcctcctaa \
+gagtagtatt\n    11701 gatgctttca agcttaacat taagttgttg ggtattggag gtaaaccatg \
+tatcaaggtt\n    11761 gctactgtac agtctaaaat gtctgacgta aagtgcacat ctgtggtact \
+gctctcggtt\n    11821 cttcaacaac ttagagtaga gtcatcttct aaattgtggg cacaatgtgt \
+acaactccac\n    11881 aatgatattc ttcttgcaaa agacacaact gaagctttcg agaagatggt \
+ttctcttttg\n    11941 tctgttttgc tatccatgca gggtgctgta gacattaata ggttgtgcga \
+ggaaatgctc\n    12001 gataaccgtg ctactcttca ggctattgct tcagaattta gttctttacc \
+atcatatgcc\n    12061 gcttatgcca ctgcccagga ggcctatgag caggctgtag ctaatggtga \
+ttctgaagtc\n    12121 gttctcaaaa agttaaagaa atctttgaat gtggctaaat ctgagtttga \
+ccgtgatgct\n    12181 gccatgcaac gcaagttgga aaagatggca gatcaggcta tgacccaaat \
+gtacaaacag\n    12241 gcaagatctg aggacaagag ggcaaaagta actagtgcta tgcaaacaat \
+gctcttcact\n    12301 atgcttagga agcttgataa tgatgcactt aacaacatta tcaacaatgc \
+gcgtgatggt\n    12361 tgtgttccac tcaacatcat accattgact acagcagcca aactcatggt \
+tgttgtccct\n    12421 gattatggta cctacaagaa cacttgtgat ggtaacacct ttacatatgc \
+atctgcactc\n    12481 tgggaaatcc agcaagttgt tgatgcggat agcaagattg ttcaacttag \
+tgaaattaac\n    12541 atggacaatt caccaaattt ggcttggcct cttattgtta cagctctaag \
+agccaactca\n    12601 gctgttaaac tacagaataa tgaactgagt ccagtagcac tacgacagat \
+gtcctgtgcg\n    12661 gctggtacca cacaaacagc ttgtactgat gacaatgcac ttgcctacta \
+taacaattcg\n    12721 aagggaggta ggtttgtgct ggcattacta tcagaccacc aagatctcaa \
+atgggctaga\n    12781 ttccctaaga gtgatggtac aggtacaatt tacacagaac tggaaccacc \
+ttgtaggttt\n    12841 gttacagaca caccaaaagg gcctaaagtg aaatacttgt acttcatcaa \
+aggcttaaac\n    12901 aacctaaata gaggtatggt gctgggcagt ttagctgcta cagtacgtct \
+tcaggctgga\n    12961 aatgctacag aagtacctgc caattcaact gtgctttcct tctgtgcttt \
+tgcagtagac\n    13021 cctgctaaag catataagga ttacctagca agtggaggac aaccaatcac \
+caactgtgtg\n    13081 aagatgttgt gtacacacac tggtacagga caggcaatta ctgtaacacc \
+agaagctaac\n    13141 atggaccaag agtcctttgg tggtgcttca tgttgtctgt attgtagatg \
+ccacattgac\n    13201 catccaaatc ctaaaggatt ctgtgacttg aaaggtaagt acgtccaaat \
+acctaccact\n    13261 tgtgctaatg acccagtggg ttttacactt agaaacacag tctgtaccgt \
+ctgcggaatg\n    13321 tggaaaggtt atggctgtag ttgtgaccaa ctccgcgaac ccttgatgca \
+gtctgcggat\n    13381 gcatcaacgt ttttaaacgg gtttgcggtg taagtgcagc ccgtcttaca \
+ccgtgcggca\n    13441 caggcactag tactgatgtc gtctacaggg cttttgatat ttacaacgaa \
+aaagttgctg\n    13501 gttttgcaaa gttcctaaaa actaattgct gtcgcttcca ggagaaggat \
+gaggaaggca\n    13561 atttattaga ctcttacttt gtagttaaga ggcatactat gtctaactac \
+caacatgaag\n    13621 agactattta taacttggtt aaagattgtc cagcggttgc tgtccatgac \
+tttttcaagt\n    13681 ttagagtaga tggtgacatg gtaccacata tatcacgtca gcgtctaact \
+aaatacacaa\n    13741 tggctgattt agtctatgct ctacgtcatt ttgatgaggg taattgtgat \
+acattaaaag\n    13801 aaatactcgt cacatacaat tgctgtgatg atgattattt caataagaag \
+gattggtatg\n    13861 acttcgtaga gaatcctgac atcttacgcg tatatgctaa cttaggtgag \
+cgtgtacgcc\n    13921 aatcattatt aaagactgta caattctgcg atgctatgcg tgatgcaggc \
+attgtaggcg\n    13981 tactgacatt agataatcag gatcttaatg ggaactggta cgatttcggt \
+gatttcgtac\n    14041 aagtagcacc aggctgcgga gttcctattg tggattcata ttactcattg \
+ctgatgccca\n    14101 tcctcacttt gactagggca ttggctgctg agtcccatat ggatgctgat \
+ctcgcaaaac\n    14161 cacttattaa gtgggatttg ctgaaatatg attttacgga agagagactt \
+tgtctcttcg\n    14221 accgttattt taaatattgg gaccagacat accatcccaa ttgtattaac \
+tgtttggatg\n    14281 ataggtgtat ccttcattgt gcaaacttta atgtgttatt ttctactgtg \
+tttccaccta\n    14341 caagttttgg accactagta agaaaaatat ttgtagatgg tgttcctttt \
+gttgtttcaa\n    14401 ctggatacca ttttcgtgag ttaggagtcg tacataatca ggatgtaaac \
+ttacatagct\n    14461 cgcgtctcag tttcaaggaa cttttagtgt atgctgctga tccagctatg \
+catgcagctt\n    14521 ctggcaattt attgctagat aaacgcacta catgcttttc agtagctgca \
+ctaacaaaca\n    14581 atgttgcttt tcaaactgtc aaacccggta attttaataa agacttttat \
+gactttgctg\n    14641 tgtctaaagg tttctttaag gaaggaagtt ctgttgaact aaaacacttc \
+ttctttgctc\n    14701 aggatggcaa cgctgctatc agtgattatg actattatcg ttataatctg \
+ccaacaatgt\n    14761 gtgatatcag acaactccta ttcgtagttg aagttgttga taaatacttt \
+gattgttacg\n    14821 atggtggctg tattaatgcc aaccaagtaa tcgttaacaa tctggataaa \
+tcagctggtt\n    14881 tcccatttaa taaatggggt aaggctagac tttattatga ctcaatgagt \
+tatgaggatc\n    14941 aagatgcact tttcgcgtat actaagcgta atgtcatccc tactataact \
+caaatgaatc\n    15001 ttaagtatgc cattagtgca aagaatagag ctcgcaccgt agctggtgtc \
+tctatctgta\n    15061 gtactatgac aaatagacag tttcatcaga aattattgaa gtcaatagcc \
+gccactagag\n    15121 gagctactgt ggtaattgga acaagcaagt tttacggtgg ctggcataat \
+atgttaaaaa\n    15181 ctgtttacag tgatgtagaa actccacacc ttatgggttg ggattatcca \
+aaatgtgaca\n    15241 gagccatgcc taacatgctt aggataatgg cctctcttgt tcttgctcgc \
+aaacataaca\n    15301 cttgctgtaa cttatcacac cgtttctaca ggttagctaa cgagtgtgcg \
+caagtattaa\n    15361 gtgagatggt catgtgtggc ggctcactat atgttaaacc aggtggaaca \
+tcatccggtg\n    15421 atgctacaac tgcttatgct aatagtgtct ttaacatttg tcaagctgtt \
+acagccaatg\n    15481 taaatgcact tctttcaact gatggtaata agatagctga caagtatgtc \
+cgcaatctac\n    15541 aacacaggct ctatgagtgt ctctatagaa atagggatgt tgatcatgaa \
+ttcgtggatg\n    15601 agttttacgc ttacctgcgt aaacatttct ccatgatgat tctttctgat \
+gatgccgttg\n    15661 tgtgctataa cagtaactat gcggctcaag gtttagtagc tagcattaag \
+aactttaagg\n    15721 cagttcttta ttatcaaaat aatgtgttca tgtctgaggc aaaatgttgg \
+actgagactg\n    15781 accttactaa aggacctcac gaattttgct cacagcatac aatgctagtt \
+aaacaaggag\n    15841 atgattacgt gtacctgcct tacccagatc catcaagaat attaggcgca \
+ggctgttttg\n    15901 tcgatgatat tgtcaaaaca gatggtacac ttatgattga aaggttcgtg \
+tcactggcta\n    15961 ttgatgctta cccacttaca aaacatccta atcaggagta tgctgatgtc \
+tttcacttgt\n    16021 atttacaata cattagaaag ttacatgatg agcttactgg ccacatgttg \
+gacatgtatt\n    16081 ccgtaatgct aactaatgat aacacctcac ggtactggga acctgagttt \
+tatgaggcta\n    16141 tgtacacacc acatacagtc ttgcaggctg taggtgcttg tgtattgtgc \
+aattcacaga\n    16201 cttcacttcg ttgcggtgcc tgtattagga gaccattcct atgttgcaag \
+tgctgctatg\n    16261 accatgtcat ttcaacatca cacaaattag tgttgtctgt taatccctat \
+gtttgcaatg\n    16321 ccccaggttg tgatgtcact gatgtgacac aactgtatct aggaggtatg \
+agctattatt\n    16381 gcaagtcaca taagcctccc attagttttc cattatgtgc taatggtcag \
+gtttttggtt\n    16441 tatacaaaaa cacatgtgta ggcagtgaca atgtcactga cttcaatgcg \
+atagcaacat\n    16501 gtgattggac taatgctggc gattacatac ttgccaacac ttgtactgag \
+agactcaagc\n    16561 ttttcgcagc agaaacgctc aaagccactg aggaaacatt taagctgtca \
+tatggtattg\n    16621 ccactgtacg cgaagtactc tctgacagag aattgcatct ttcatgggag \
+gttggaaaac\n    16681 ctagaccacc attgaacaga aactatgtct ttactggtta ccgtgtaact \
+aaaaatagta\n    16741 aagtacagat tggagagtac acctttgaaa aaggtgacta tggtgatgct \
+gttgtgtaca\n    16801 gaggtactac gacatacaag ttgaatgttg gtgattactt tgtgttgaca \
+tctcacactg\n    16861 taatgccact tagtgcacct actctagtgc cacaagagca ctatgtgaga \
+attactggct\n    16921 tgtacccaac actcaacatc tcagatgagt tttctagcaa tgttgcaaat \
+tatcaaaagg\n    16981 tcggcatgca aaagtactct acactccaag gaccacctgg tactggtaag \
+agtcattttg\n    17041 ccatcggact tgctctctat tacccatctg ctcgcatagt gtatacggca \
+tgctctcatg\n    17101 cagctgttga tgccctatgt gaaaaggcat taaaatattt gcccatagat \
+aaatgtagta\n    17161 gaatcatacc tgcgcgtgcg cgcgtagagt gttttgataa attcaaagtg \
+aattcaacac\n    17221 tagaacagta tgttttctgc actgtaaatg cattgccaga aacaactgct \
+gacattgtag\n    17281 tctttgatga aatctctatg gctactaatt atgacttgag tgttgtcaat \
+gctagacttc\n    17341 gtgcaaaaca ctacgtctat attggcgatc ctgctcaatt accagccccc \
+cgcacattgc\n    17401 tgactaaagg cacactagaa ccagaatatt ttaattcagt gtgcagactt \
+atgaaaacaa\n    17461 taggtccaga catgttcctt ggaacttgtc gccgttgtcc tgctgaaatt \
+gttgacactg\n    17521 tgagtgcttt agtttatgac aataagctaa aagcacacaa ggataagtca \
+gctcaatgct\n    17581 tcaaaatgtt ctacaaaggt gttattacac atgatgtttc atctgcaatc \
+aacagacctc\n    17641 aaataggcgt tgtaagagaa tttcttacac gcaatcctgc ttggagaaaa \
+gctgttttta\n    17701 tctcacctta taattcacag aacgctgtag cttcaaaaat cttaggattg \
+cctacgcaga\n    17761 ctgttgattc atcacagggt tctgaatatg actatgtcat attcacacaa \
+actactgaaa\n    17821 cagcacactc ttgtaatgtc aaccgcttca atgtggctat cacaagggca \
+aaaattggca\n    17881 ttttgtgcat aatgtctgat agagatcttt atgacaaact gcaatttaca \
+agtctagaaa\n    17941 taccacgtcg caatgtggct acattacaag cagaaaatgt aactggactt \
+tttaaggact\n    18001 gtagtaagat cattactggt cttcatccta cacaggcacc tacacacctc \
+agcgttgata\n    18061 taaagttcaa gactgaagga ttatgtgttg acataccagg cataccaaag \
+gacatgacct\n    18121 accgtagact catctctatg atgggtttca aaatgaatta ccaagtcaat \
+ggttacccta\n    18181 atatgtttat cacccgcgaa gaagctattc gtcacgttcg tgcgtggatt \
+ggctttgatg\n    18241 tagagggctg tcatgcaact agagatgctg tgggtactaa cctacctctc \
+cagctaggat\n    18301 tttctacagg tgttaactta gtagctgtac cgactggtta tgttgacact \
+gaaaataaca\n    18361 cagaattcac cagagttaat gcaaaacctc caccaggtga ccagtttaaa \
+catcttatac\n    18421 cactcatgta taaaggcttg ccctggaatg tagtgcgtat taagatagta \
+caaatgctca\n    18481 gtgatacact gaaaggattg tcagacagag tcgtgttcgt cctttgggcg \
+catggctttg\n    18541 agcttacatc aatgaagtac tttgtcaaga ttggacctga aagaacgtgt \
+tgtctgtgtg\n    18601 acaaacgtgc aacttgcttt tctacttcat cagatactta tgcctgctgg \
+aatcattctg\n    18661 tgggttttga ctatgtctat aacccattta tgattgatgt tcagcagtgg \
+ggctttacgg\n    18721 gtaaccttca gagtaaccat gaccaacatt gccaggtaca tggaaatgca \
+catgtggcta\n    18781 gttgtgatgc tatcatgact agatgtttag cagtccatga gtgctttgtt \
+aagcgcgttg\n    18841 attggtctgt tgaataccct attataggag atgaactgag ggttaattct \
+gcttgcagaa\n    18901 aagtacaaca catggttgtg aagtctgcat tgcttgctga taagtttcca \
+gttcttcatg\n    18961 acattggaaa tccaaaggct atcaagtgtg tgcctcaggc tgaagtagaa \
+tggaagttct\n    19021 acgatgctca gccatgtagt gacaaagctt acaaaataga ggaactcttc \
+tattcttatg\n    19081 ctacacatca cgataaattc actgatggtg tttgtttgtt ttggaattgt \
+aacgttgatc\n    19141 gttacccagc caatgcaatt gtgtgtaggt ttgacacaag agtcttgtca \
+aacttgaact\n    19201 taccaggctg tgatggtggt agtttgtatg tgaataagca tgcattccac \
+actccagctt\n    19261 tcgataaaag tgcatttact aatttaaagc aattgccttt cttttactat \
+tctgatagtc\n    19321 cttgtgagtc tcatggcaaa caagtagtgt cggatattga ttatgttcca \
+ctcaaatctg\n    19381 ctacgtgtat tacacgatgc aatttaggtg gtgctgtttg cagacaccat \
+gcaaatgagt\n    19441 accgacagta cttggatgca tataatatga tgatttctgc tggatttagc \
+ctatggattt\n    19501 acaaacaatt tgatacttat aacctgtgga atacatttac caggttacag \
+agtttagaaa\n    19561 atgtggctta taatgttgtt aataaaggac actttgatgg acacgccggc \
+gaagcacctg\n    19621 tttccatcat taataatgct gtttacacaa aggtagatgg tattgatgtg \
+gagatctttg\n    19681 aaaataagac aacacttcct gttaatgttg catttgagct ttgggctaag \
+cgtaacatta\n    19741 aaccagtgcc agagattaag atactcaata atttgggtgt tgatatcgct \
+gctaatactg\n    19801 taatctggga ctacaaaaga gaagccccag cacatgtatc tacaataggt \
+gtctgcacaa\n    19861 tgactgacat tgccaagaaa cctactgaga gtgcttgttc ttcacttact \
+gtcttgtttg\n    19921 atggtagagt ggaaggacag gtagaccttt ttagaaacgc ccgtaatggt \
+gttttaataa\n    19981 cagaaggttc agtcaaaggt ctaacacctt caaagggacc agcacaagct \
+agcgtcaatg\n    20041 gagtcacatt aattggagaa tcagtaaaaa cacagtttaa ctactttaag \
+aaagtagacg\n    20101 gcattattca acagttgcct gaaacctact ttactcagag cagagactta \
+gaggatttta\n    20161 agcccagatc acaaatggaa actgactttc tcgagctcgc tatggatgaa \
+ttcatacagc\n    20221 gatataagct cgagggctat gccttcgaac acatcgttta tggagatttc \
+agtcatggac\n    20281 aacttggcgg tcttcattta atgataggct tagccaagcg ctcacaagat \
+tcaccactta\n    20341 aattagagga ttttatccct atggacagca cagtgaaaaa ttacttcata \
+acagatgcgc\n    20401 aaacaggttc atcaaaatgt gtgtgttctg tgattgatct tttacttgat \
+gactttgtcg\n    20461 agataataaa gtcacaagat ttgtcagtga tttcaaaagt ggtcaaggtt \
+acaattgact\n    20521 atgctgaaat ttcattcatg ctttggtgta aggatggaca tgttgaaacc \
+ttctacccaa\n    20581 aactacaagc aagtcaagcg tggcaaccag gtgttgcgat gcctaacttg \
+tacaagatgc\n    20641 aaagaatgct tcttgaaaag tgtgaccttc agaattatgg tgaaaatgct \
+gttataccaa\n    20701 aaggaataat gatgaatgtc gcaaagtata ctcaactgtg tcaatactta \
+aatacactta\n    20761 ctttagctgt accctacaac atgagagtta ttcactttgg tgctggctct \
+gataaaggag\n    20821 ttgcaccagg tacagctgtg ctcagacaat ggttgccaac tggcacacta \
+cttgtcgatt\n    20881 cagatcttaa tgacttcgtc tccgacgcag attctacttt aattggagac \
+tgtgcaacag\n    20941 tacatacggc taataaatgg gaccttatta ttagcgatat gtatgaccct \
+aggaccaaac\n    21001 atgtgacaaa agagaatgac tctaaagaag ggtttttcac ttatctgtgt \
+ggatttataa\n    21061 agcaaaaact agccctgggt ggttctatag ctgtaaagat aacagagcat \
+tcttggaatg\n    21121 ctgaccttta caagcttatg ggccatttct catggtggac agcttttgtt \
+acaaatgtaa\n    21181 atgcatcatc atcggaagca tttttaattg gggctaacta tcttggcaag \
+ccgaaggaac\n    21241 aaattgatgg ctataccatg catgctaact acattttctg gaggaacaca \
+aatcctatcc\n    21301 agttgtcttc ctattcactc tttgacatga gcaaatttcc tcttaaatta \
+agaggaactg\n    21361 ctgtaatgtc tcttaaggag aatcaaatca atgatatgat ttattctctt \
+ctggaaaaag\n    21421 gtaggcttat cattagagaa aacaacagag ttgtggtttc aagtgatatt \
+cttgttaaca\n    21481 actaaacgaa catgtttatt ttcttattat ttcttactct cactagtggt \
+agtgaccttg\n    21541 accggtgcac cacttttgat gatgttcaag ctcctaatta cactcaacat \
+acttcatcta\n    21601 tgaggggggt ttactatcct gatgaaattt ttagatcaga cactctttat \
+ttaactcagg\n    21661 atttatttct tccattttat tctaatgtta cagggtttca tactattaat \
+catacgtttg\n    21721 gcaaccctgt catacctttt aaggatggta tttattttgc tgccacagag \
+aaatcaaatg\n    21781 ttgtccgtgg ttgggttttt ggttctacca tgaacaacaa gtcacagtcg \
+gtgattatta\n    21841 ttaacaattc tactaatgtt gttatacgag catgtaactt tgaattgtgt \
+gacaaccctt\n    21901 tctttgctgt ttctaaaccc atgggtacac agacacatac tatgatattc \
+gataatgcat\n    21961 ttaattgcac tttcgagtac atatctgatg ccttttcgct tgatgtttca \
+gaaaagtcag\n    22021 gtaattttaa acacttacga gagtttgtgt ttaaaaataa agatgggttt \
+ctctatgttt\n    22081 ataagggcta tcaacctata gatgtagttc gtgatctacc ttctggtttt \
+aacactttga\n    22141 aacctatttt taagttgcct cttggtatta acattacaaa ttttagagcc \
+attcttacag\n    22201 ccttttcacc tgctcaagac atttggggca cgtcagctgc agcctatttt \
+gttggctatt\n    22261 taaagccaac tacatttatg ctcaagtatg atgaaaatgg tacaatcaca \
+gatgctgttg\n    22321 attgttctca aaatccactt gctgaactca aatgctctgt taagagcttt \
+gagattgaca\n    22381 aaggaattta ccagacctct aatttcaggg ttgttccctc aggagatgtt \
+gtgagattcc\n    22441 ctaatattac aaacttgtgt ccttttggag aggtttttaa tgctactaaa \
+ttcccttctg\n    22501 tctatgcatg ggagagaaaa aaaatttcta attgtgttgc tgattactct \
+gtgctctaca\n    22561 actcaacatt tttttcaacc tttaagtgct atggcgtttc tgccactaag \
+ttgaatgatc\n    22621 tttgcttctc caatgtctat gcagattctt ttgtagtcaa gggagatgat \
+gtaagacaaa\n    22681 tagcgccagg acaaactggt gttattgctg attataatta taaattgcca \
+gatgatttca\n    22741 tgggttgtgt ccttgcttgg aatactagga acattgatgc tacttcaact \
+ggtaattata\n    22801 attataaata taggtatctt agacatggca agcttaggcc ctttgagaga \
+gacatatcta\n    22861 atgtgccttt ctcccctgat ggcaaacctt gcaccccacc tgctcttaat \
+tgttattggc\n    22921 cattaaatga ttatggtttt tacaccacta ctggcattgg ctaccaacct \
+tacagagttg\n    22981 tagtactttc ttttgaactt ttaaatgcac cggccacggt ttgtggacca \
+aaattatcca\n    23041 ctgaccttat taagaaccag tgtgtcaatt ttaattttaa tggactcact \
+ggtactggtg\n    23101 tgttaactcc ttcttcaaag agatttcaac catttcaaca atttggccgt \
+gatgtttctg\n    23161 atttcactga ttccgttcga gatcctaaaa catctgaaat attagacatt \
+tcaccttgcg\n    23221 cttttggggg tgtaagtgta attacacctg gaacaaatgc ttcatctgaa \
+gttgctgttc\n    23281 tatatcaaga tgttaactgc actgatgttt ctacagcaat tcatgcagat \
+caactcacac\n    23341 cagcttggcg catatattct actggaaaca atgtattcca gactcaagca \
+ggctgtctta\n    23401 taggagctga gcatgtcgac acttcttatg agtgcgacat tcctattgga \
+gctggcattt\n    23461 gtgctagtta ccatacagtt tctttattac gtagtactag ccaaaaatct \
+attgtggctt\n    23521 atactatgtc tttaggtgct gatagttcaa ttgcttactc taataacacc \
+attgctatac\n    23581 ctactaactt ttcaattagc attactacag aagtaatgcc tgtttctatg \
+gctaaaacct\n    23641 ccgtagattg taatatgtac atctgcggag attctactga atgtgctaat \
+ttgcttctcc\n    23701 aatatggtag cttttgcaca caactaaatc gtgcactctc aggtattgct \
+gctgaacagg\n    23761 atcgcaacac acgtgaagtg ttcgctcaag tcaaacaaat gtacaaaacc \
+ccaactttga\n    23821 aatattttgg tggttttaat ttttcacaaa tattacctga ccctctaaag \
+ccaactaaga\n    23881 ggtcttttat tgaggacttg ctctttaata aggtgacact cgctgatgct \
+ggcttcatga\n    23941 agcaatatgg cgaatgccta ggtgatatta atgctagaga tctcatttgt \
+gcgcagaagt\n    24001 tcaatggact tacagtgttg ccacctctgc tcactgatga tatgattgct \
+gcctacactg\n    24061 ctgctctagt tagtggtact gccactgctg gatggacatt tggtgctggc \
+gctgctcttc\n    24121 aaataccttt tgctatgcaa atggcatata ggttcaatgg cattggagtt \
+acccaaaatg\n    24181 ttctctatga gaaccaaaaa caaatcgcca accaatttaa caaggcgatt \
+agtcaaattc\n    24241 aagaatcact tacaacaaca tcaactgcat tgggcaagct gcaagacgtt \
+gttaaccaga\n    24301 atgctcaagc attaaacaca cttgttaaac aacttagctc taattttggt \
+gcaatttcaa\n    24361 gtgtgctaaa tgatatcctt tcgcgacttg ataaagtcga ggcggaggta \
+caaattgaca\n    24421 ggttaattac aggcagactt caaagccttc aaacctatgt aacacaacaa \
+ctaatcaggg\n    24481 ctgctgaaat cagggcttct gctaatcttg ctgctactaa aatgtctgag \
+tgtgttcttg\n    24541 gacaatcaaa aagagttgac ttttgtggaa agggctacca ccttatgtcc \
+ttcccacaag\n    24601 cagccccgca tggtgttgtc ttcctacatg tcacgtatgt gccatcccag \
+gagaggaact\n    24661 tcaccacagc gccagcaatt tgtcatgaag gcaaagcata cttccctcgt \
+gaaggtgttt\n    24721 ttgtgtttaa tggcacttct tggtttatta cacagaggaa cttcttttct \
+ccacaaataa\n    24781 ttactacaga caatacattt gtctcaggaa attgtgatgt cgttattggc \
+atcattaaca\n    24841 acacagttta tgatcctctg caacctgagc ttgactcatt caaagaagag \
+ctggacaagt\n    24901 acttcaaaaa tcatacatca ccagatgttg atcttggcga catttcaggc \
+attaacgctt\n    24961 ctgtcgtcaa cattcaaaaa gaaattgacc gcctcaatga ggtcgctaaa \
+aatttaaatg\n    25021 aatcactcat tgaccttcaa gaattgggaa aatatgagca atatattaaa \
+tggccttggt\n    25081 atgtttggct cggcttcatt gctggactaa ttgccatcgt catggttaca \
+atcttgcttt\n    25141 gttgcatgac tagttgttgc agttgcctca agggtgcatg ctcttgtggt \
+tcttgctgca\n    25201 agtttgatga ggatgactct gagccagttc tcaagggtgt caaattacat \
+tacacataaa\n    25261 cgaacttatg gatttgttta tgagattttt tactcttaga tcaattactg \
+cacagccagt\n    25321 aaaaattgac aatgcttctc ctgcaagtac tgttcatgct acagcaacga \
+taccgctaca\n    25381 agcctcactc cctttcggat ggcttgttat tggcgttgca tttcttgctg \
+tttttcagag\n    25441 cgctaccaaa ataattgcgc tcaataaaag atggcagcta gccctttata \
+agggcttcca\n    25501 gttcatttgc aatttactgc tgctatttgt taccatctat tcacatcttt \
+tgcttgtcgc\n    25561 tgcaggtatg gaggcgcaat ttttgtacct ctatgccttg atatattttc \
+tacaatgcat\n    25621 caacgcatgt agaattatta tgagatgttg gctttgttgg aagtgcaaat \
+ccaagaaccc\n    25681 attactttat gatgccaact actttgtttg ctggcacaca cataactatg \
+actactgtat\n    25741 accatataac agtgtcacag atacaattgt cgttactgaa ggtgacggca \
+tttcaacacc\n    25801 aaaactcaaa gaagactacc aaattggtgg ttattctgag gataggcact \
+caggtgttaa\n    25861 agactatgtc gttgtacatg gctatttcac cgaagtttac taccagcttg \
+agtctacaca\n    25921 aattactaca gacactggta ttgaaaatgc tacattcttc atctttaaca \
+agcttgttaa\n    25981 agacccaccg aatgtgcaaa tacacacaat cgacggctct tcaggagttg \
+ctaatccagc\n    26041 aatggatcca atttatgatg agccgacgac gactactagc gtgcctttgt \
+aagcacaaga\n    26101 aagtgagtac gaacttatgt actcattcgt ttcggaagaa acaggtacgt \
+taatagttaa\n    26161 tagcgtactt ctttttcttg ctttcgtggt attcttgcta gtcacactag \
+ccatccttac\n    26221 tgcgcttcga ttgtgtgcgt actgctgcaa tattgttaac gtgagtttag \
+taaaaccaac\n    26281 ggtttacgtc tactcgcgtg ttaaaaatct gaactcttct gaaggagttc \
+ctgatcttct\n    26341 ggtctaaacg aactaactat tattattatt ctgtttggaa ctttaacatt \
+gcttatcatg\n    26401 gcagacaacg gtactattac cgttgaggag cttaaacaac tcctggaaca \
+atggaaccta\n    26461 gtaataggtt tcctattcct agcctggatt atgttactac aatttgccta \
+ttctaatcgg\n    26521 aacaggtttt tgtacataat aaagcttgtt ttcctctggc tcttgtggcc \
+agtaacactt\n    26581 gcttgttttg tgcttgctgc tgtctacaga attaattggg tgactggcgg \
+gattgcgatt\n    26641 gcaatggctt gtattgtagg cttgatgtgg cttagctact tcgttgcttc \
+cttcaggctg\n    26701 tttgctcgta cccgctcaat gtggtcattc aacccagaaa caaacattct \
+tctcaatgtg\n    26761 cctctccggg ggacaattgt gaccagaccg ctcatggaaa gtgaacttgt \
+cattggtgct\n    26821 gtgatcattc gtggtcactt gcgaatggcc ggacactccc tagggcgctg \
+tgacattaag\n    26881 gacctgccaa aagagatcac tgtggctaca tcacgaacgc tttcttatta \
+caaattagga\n    26941 gcgtcgcagc gtgtaggcac tgattcaggt tttgctgcat acaaccgcta \
+ccgtattgga\n    27001 aactataaat taaatacaga ccacgccggt agcaacgaca atattgcttt \
+gctagtacag\n    27061 taagtgacaa cagatgtttc atcttgttga cttccaggtt acaatagcag \
+agatattgat\n    27121 tatcattatg aggactttca ggattgctat ttggaatctt gacgttataa \
+taagttcaat\n    27181 agtgagacaa ttatttaagc ctctaactaa gaagaattat tcggagttag \
+atgatgaaga\n    27241 acctatggag ttagattatc cataaaacga acatgaaaat tattctcttc \
+ctgacattga\n    27301 ttgtatttac atcttgcgag ctatatcact atcaggagtg tgttagaggt \
+acgactgtac\n    27361 tactaaaaga accttgccca tcaggaacat acgagggcaa ttcaccattt \
+caccctcttg\n    27421 ctgacaataa atttgcacta acttgcacta gcacacactt tgcttttgct \
+tgtgctgacg\n    27481 gtactcgaca tacctatcag ctgcgtgcaa gatcagtttc accaaaactt \
+ttcatcagac\n    27541 aagaggaggt tcaacaagag ctctactcgc cactttttct cattgttgct \
+gctctagtat\n    27601 ttttaatact ttgcttcacc attaagagaa agacagaatg aatgagctca \
+ctttaattga\n    27661 cttctatttg tgctttttag cctttctgct attccttgtt ttaataatgc \
+ttattatatt\n    27721 ttggttttca ctcgaaatcc aggatctaga agaaccttgt accaaagtct \
+aaacgaacat\n    27781 gaaacttctc attgttttga cttgtatttc tctatgcagt tgcatatgca \
+ctgtagtaca\n    27841 gcgctgtgca tctaataaac ctcatgtgct tgaagatcct tgtaaggtac \
+aacactaggg\n    27901 gtaatactta tagcactgct tggctttgtg ctctaggaaa ggttttacct \
+tttcatagat\n    27961 ggcacactat ggttcaaaca tgcacaccta atgttactat caactgtcaa \
+gatccagctg\n    28021 gtggtgcgct tatagctagg tgttggtacc ttcatgaagg tcaccaaact \
+gctgcattta\n    28081 gagacgtact tgttgtttta aataaacgaa caaattaaaa tgtctgataa \
+tggaccccaa\n    28141 tcaaaccaac gtagtgcccc ccgcattaca tttggtggac ccacagattc \
+aactgacaat\n    28201 aaccagaatg gaggacgcaa tggggcaagg ccaaaacagc gccgacccca \
+aggtttaccc\n    28261 aataatactg cgtcttggtt cacagctctc actcagcatg gcaaggagga \
+acttagattc\n    28321 cctcgaggcc agggcgttcc aatcaacacc aatagtggtc cagatgacca \
+aattggctac\n    28381 taccgaagag ctacccgacg agttcgtggt ggtgacggca aaatgaaaga \
+gctcagcccc\n    28441 agatggtact tctattacct aggaactggc ccagaagctt cacttcccta \
+cggcgctaac\n    28501 aaagaaggca tcgtatgggt tgcaactgag ggagccttga atacacccaa \
+agaccacatt\n    28561 ggcacccgca atcctaataa caatgctgcc accgtgctac aacttcctca \
+aggaacaaca\n    28621 ttgccaaaag gcttctacgc agagggaagc agaggcggca gtcaagcctc \
+ttctcgctcc\n    28681 tcatcacgta gtcgcggtaa ttcaagaaat tcaactcctg gcagcagtag \
+gggaaattct\n    28741 cctgctcgaa tggctagcgg aggtggtgaa actgccctcg cgctattgct \
+gctagacaga\n    28801 ttgaaccagc ttgagagcaa agtttctggt aaaggccaac aacaacaagg \
+ccaaactgtc\n    28861 actaagaaat ctgctgctga ggcatctaaa aagcctcgcc aaaaacgtac \
+tgccacaaaa\n    28921 cagtacaacg tcactcaagc atttgggaga cgtggtccag aacaaaccca \
+aggaaatttc\n    28981 ggggaccaag acctaatcag acaaggaact gattacaaac attggccgca \
+aattgcacaa\n    29041 tttgctccaa gtgcctctgc attctttgga atgtcacgca ttggcatgga \
+agtcacacct\n    29101 tcgggaacat ggctgactta tcatggagcc attaaattgg atgacaaaga \
+tccacaattc\n    29161 aaagacaacg tcatactgct gaacaagcac attgacgcat acaaaacatt \
+cccaccaaca\n    29221 gagcctaaaa aggacaaaaa gaaaaagact gatgaagctc agcctttgcc \
+gcagagacaa\n    29281 aagaagcagc ccactgtgac tcttcttcct gcggctgaca tggatgattt \
+ctccagacaa\n    29341 cttcaaaatt ccatgagtgg agcttctgct gattcaactc aggcataaac \
+actcatgatg\n    29401 accacacaag gcagatgggc tatgtaaacg ttttcgcaat tccgtttacg \
+atacatagtc\n    29461 tactcttgtg cagaatgaat tctcgtaact aaacagcaca agtaggttta \
+gttaacttta\n    29521 atctcacata gcaatcttta atcaatgtgt aacattaggg aggacttgaa \
+agagccacca\n    29581 cattttcatc gaggccacgc ggagtacgat cgagggtaca gtgaataatg \
+ctagggagag\n    29641 ctgcctatat ggaagagccc taatgtgtaa aattaatttt agtagtgcta \
+tccccatgtg\n    29701 attttaatag cttcttagga gaatgacaaa aaaaaaaaaa aaaaaaaaaa \
+a\>\"", "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"x0", "=", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"StringSplit", "[", 
+        RowBox[{"seq", ",", "Whitespace"}], "]"}], "//", "Flatten"}], "//", 
+      "ToExpression"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"x1", "=", 
+     RowBox[{"Split", "[", 
+      RowBox[{"x0", ",", 
+       RowBox[{
+        RowBox[{"!", 
+         RowBox[{"IntegerQ", "[", "#2", "]"}]}], "&"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"x2", "=", 
+     RowBox[{"Map", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"Drop", "[", 
+         RowBox[{"#", ",", "1"}], "]"}], "&"}], ",", "x1"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"x3", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Map", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"ToString", "[", "#", "]"}], "&"}], ",", 
+         RowBox[{"x2", "[", 
+          RowBox[{"[", "i", "]"}], "]"}]}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", 
+         RowBox[{"Length", "[", "x2", "]"}]}], "}"}]}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"x4", "=", 
+     RowBox[{
+      RowBox[{"Map", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Take", "[", 
+          RowBox[{"#", ",", "1"}], "]"}], "&"}], ",", "x1"}], "]"}], "//", 
+      "Flatten"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"x5", "=", 
+     RowBox[{"Transpose", "[", 
+      RowBox[{"{", 
+       RowBox[{"x4", ",", "x3"}], "}"}], "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "You", " ", "can", " ", "export", " ", "x5", " ", "as", " ", "a", " ", 
+     "csv", " ", "file", " ", "using", " ", 
+     RowBox[{"Export", "[", 
+      RowBox[{"\"\<Covid-19_Seq.csv\>\"", ",", "x5"}], "]"}]}], 
+    "*)"}]}]}]], "Input",
+ CellChangeTimes->{{3.794848111467442*^9, 3.794848228135648*^9}, {
+  3.794848425802844*^9, 
+  3.794848431840623*^9}},ExpressionUUID->"1833a14a-5e27-43bc-8b44-\
+d7e0f3212a16"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"x5", "[", 
+      RowBox[{"[", 
+       RowBox[{"All", ",", "2"}], "]"}], "]"}], "//", "ToUpperCase"}], "//", 
+    "Characters"}], "//", "Flatten"}], "//", "Length", " ", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"The", " ", "genome", " ", "consists", " ", "of", " ", "29"}], 
+    ",", 
+    RowBox[{"751", " ", "base", " ", "pairs"}]}], "*)"}]}]], "Input",
+ CellChangeTimes->{{3.7948482714778147`*^9, 3.794848353554823*^9}, {
+   3.794848460559412*^9, 3.7948484681744957`*^9}, {3.794848870983604*^9, 
+   3.794848873617556*^9}, 
+   3.794848903759879*^9},ExpressionUUID->"8b5bcb65-ecd7-4771-90cc-\
+6a94412b79e2"],
+
+Cell[BoxData["29751"], "Output",
+ CellChangeTimes->{{3.79484828958519*^9, 3.794848353985633*^9}, {
+  3.7948484617695627`*^9, 3.794848468562874*^9}},
+ CellLabel->
+  "Out[217]=",ExpressionUUID->"d70da712-f7fc-414a-87fc-2a418cb016c7"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"x", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{
+      RowBox[{"x5", "[", 
+       RowBox[{"[", 
+        RowBox[{"All", ",", "2"}], "]"}], "]"}], "//", "ToUpperCase"}], "//", 
+     "Characters"}], "//", "Flatten"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.794848477462328*^9, 3.7948484867083263`*^9}},
+ CellLabel->
+  "In[218]:=",ExpressionUUID->"4badc421-86ae-4138-b4b5-dbec09835fed"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"ArrayComponents", "@", "x"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"probM", "[", 
+    RowBox[{"data_", ",", "ord_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"uniques", "=", 
+        RowBox[{"Union", "[", "data", "]"}]}], ",", 
+       RowBox[{"acc", "=", "0"}], ",", "len", ",", "trans", ",", "trPre", ",",
+        "tData", ",", "toCount", ",", "toGather", ",", "toNormalize"}], "}"}],
+      ",", 
+     RowBox[{
+      RowBox[{"trans", "=", 
+       RowBox[{"Dispatch", "@", 
+        RowBox[{"Thread", "[", 
+         RowBox[{"uniques", "\[Rule]", 
+          RowBox[{"Range", "[", 
+           RowBox[{"len", "=", 
+            RowBox[{"Length", "[", "uniques", "]"}]}], "]"}]}], "]"}]}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"trPre", "=", 
+       RowBox[{"Dispatch", "@", 
+        RowBox[{"Flatten", "[", 
+         RowBox[{"Array", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"{", "##", "}"}], "\[Rule]", 
+             RowBox[{"++", "acc"}]}], "&"}], ",", 
+           RowBox[{"ConstantArray", "[", 
+            RowBox[{"len", ",", "ord"}], "]"}]}], "]"}], "]"}]}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"tData", "=", 
+       RowBox[{"Replace", "[", 
+        RowBox[{"data", ",", "trans", ",", 
+         RowBox[{"{", "1", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"toCount", "=", 
+       RowBox[{"Partition", "[", 
+        RowBox[{"tData", ",", 
+         RowBox[{"ord", "+", "1"}], ",", "1"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"toGather", "=", 
+       RowBox[{"Map", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"{", 
+            RowBox[{
+             RowBox[{"Replace", "[", 
+              RowBox[{
+               RowBox[{"#", "[", 
+                RowBox[{"[", 
+                 RowBox[{"1", ",", " ", 
+                  RowBox[{";;", 
+                   RowBox[{"-", "2"}]}]}], "]"}], "]"}], ",", "trPre"}], 
+              "]"}], ",", 
+             RowBox[{"#", "[", 
+              RowBox[{"[", 
+               RowBox[{"1", ",", 
+                RowBox[{"-", "1"}]}], "]"}], "]"}]}], "}"}], "\[Rule]", 
+           RowBox[{"#", "[", 
+            RowBox[{"[", "2", "]"}], "]"}]}], "&"}], ",", 
+         RowBox[{"Tally", "[", "toCount", "]"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"toNormalize", "=", 
+       RowBox[{"GatherBy", "[", 
+        RowBox[{"toGather", ",", 
+         RowBox[{
+          RowBox[{"#", "[", 
+           RowBox[{"[", 
+            RowBox[{"1", ",", "1"}], "]"}], "]"}], "&"}]}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"SparseArray", "[", 
+       RowBox[{"Flatten", "@", 
+        RowBox[{"Map", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"With", "[", 
+            RowBox[{
+             RowBox[{"{", 
+              RowBox[{"tot", "=", 
+               RowBox[{"1", "/", 
+                RowBox[{"Plus", "@@", 
+                 RowBox[{"#", "[", 
+                  RowBox[{"[", 
+                   RowBox[{"All", ",", "2"}], "]"}], "]"}]}]}]}], "}"}], ",", 
+             
+             RowBox[{"Map", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{
+                 RowBox[{"#", "[", 
+                  RowBox[{"[", "1", "]"}], "]"}], "\[Rule]", 
+                 RowBox[{
+                  RowBox[{"#", "[", 
+                   RowBox[{"[", "2", "]"}], "]"}], " ", "tot"}]}], "&"}], ",",
+                "#"}], "]"}]}], "]"}], "&"}], ",", "toNormalize"}], "]"}]}], 
+       "]"}]}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"probM", "[", 
+      RowBox[{"data", ",", "i"}], "]"}], "//", "Dimensions"}], ",", 
+    RowBox[{"{", 
+     RowBox[{"i", ",", "3"}], "}"}]}], "]"}], ";"}]}], "Input",
+ CellLabel->
+  "In[219]:=",ExpressionUUID->"f0a3eb3d-207c-457f-8699-970b4c6eaa27"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"n", "=", "1"}], ";", " ", 
+  RowBox[{"(*", 
+   RowBox[{"Markov", " ", "Chain", " ", "Order"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"F", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"x", "//", "Flatten"}], "//", "DeleteDuplicates"}], "//", 
+    "Sort"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"G", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"StringJoin", "[", "#", "]"}], "&"}], ",", 
+     RowBox[{"Tuples", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"x", "//", "Flatten"}], "//", "DeleteDuplicates"}], "//", 
+        "Sort"}], ",", "n"}], "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"TableForm", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"probM", "[", 
+     RowBox[{"x", ",", "n"}], "]"}], "//", "N"}], ",", 
+   RowBox[{"TableHeadings", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"G", ",", "F"}], "}"}]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"MatrixPlot", "[", 
+  RowBox[{
+   RowBox[{"probM", "[", 
+    RowBox[{"x", ",", "n"}], "]"}], ",", 
+   RowBox[{"ImageSize", "\[Rule]", "Small"}], ",", 
+   RowBox[{"ColorFunction", "\[Rule]", "\"\<BlueGreenYellow\>\""}]}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+   "You", " ", "can", " ", "export", " ", "the", " ", "probability", " ", 
+    "transition", " ", "matrix", " ", "for", " ", "further", " ", "analysis", 
+    " ", "in", " ", "other", " ", "programming", " ", "languages", " ", 
+    RowBox[{"Export", "[", 
+     RowBox[{"\"\<Desktop/TransitionMatrix.csv\>\"", ",", 
+      RowBox[{
+       RowBox[{"probM", "[", 
+        RowBox[{"x", ",", "n"}], "]"}], "//", "N"}], ",", 
+      RowBox[{"\"\<TableHeadings\>\"", "\[Rule]", 
+       RowBox[{"{", 
+        RowBox[{"G", ",", "F"}], "}"}]}]}], "]"}]}], "*)"}]}]}], "Input",
+ CellChangeTimes->{{3.794848511955303*^9, 3.794848522138933*^9}, {
+  3.794848584274255*^9, 3.794848617711439*^9}, {3.794848654648637*^9, 
+  3.794848655765971*^9}, {3.794848917925931*^9, 3.794848926875684*^9}, {
+  3.794849005257359*^9, 3.794849034511661*^9}, {3.794849067359395*^9, 
+  3.794849093548996*^9}, {3.794849123636874*^9, 3.7948491686078672`*^9}, {
+  3.794849224243245*^9, 3.79484925175362*^9}, {3.7948495119909687`*^9, 
+  3.794849514932859*^9}, {3.794849656768903*^9, 3.794849656888506*^9}, {
+  3.7948498434418383`*^9, 3.794849843537147*^9}, {3.794849963414777*^9, 
+  3.794849965596739*^9}, {3.794850090497587*^9, 3.794850097231103*^9}, {
+  3.794850143600123*^9, 3.794850170220544*^9}, {3.794850224060878*^9, 
+  3.794850231964574*^9}},
+ CellLabel->
+  "In[334]:=",ExpressionUUID->"15e7b57a-3cb4-4af3-84cd-6c6902e7db89"],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {
+      StyleBox["\[Null]",
+       ShowStringCharacters->False], 
+      TagBox["\<\"A\"\>",
+       HoldForm], 
+      TagBox["\<\"C\"\>",
+       HoldForm], 
+      TagBox["\<\"G\"\>",
+       HoldForm], 
+      TagBox["\<\"T\"\>",
+       HoldForm]},
+     {
+      TagBox["\<\"A\"\>",
+       HoldForm], "0.2963443396226415`", "0.23337264150943396`", 
+      "0.20660377358490567`", "0.2636792452830189`"},
+     {
+      TagBox["\<\"C\"\>",
+       HoldForm], "0.37138047138047137`", "0.16414141414141414`", 
+      "0.09562289562289562`", "0.3688552188552189`"},
+     {
+      TagBox["\<\"G\"\>",
+       HoldForm], "0.2715370939065783`", "0.23161467593340876`", 
+      "0.19443995474381767`", "0.30240827541619525`"},
+     {
+      TagBox["\<\"T\"\>",
+       HoldForm], "0.22760581865908344`", "0.16985672098873456`", 
+      "0.2913704473367604`", "0.31116701301542166`"}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+    GridBoxDividers->{
+     "Columns" -> {False, True, {False}, False}, 
+      "Rows" -> {False, True, {False}, False}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[2.0999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}],
+   {OutputFormsDump`HeadedRows, OutputFormsDump`HeadedColumns}],
+  Function[BoxForm`e$, 
+   TableForm[
+   BoxForm`e$, 
+    TableHeadings -> {{"A", "C", "G", "T"}, {
+      "A", "C", "G", "T"}}]]]], "Output",
+ CellChangeTimes->{{3.794848512352137*^9, 3.794848523932518*^9}, {
+   3.794848595998178*^9, 3.794848618259313*^9}, 3.7948486560112963`*^9, 
+   3.7948486996088943`*^9, {3.794849008521976*^9, 3.794849034847649*^9}, {
+   3.794849148220264*^9, 3.794849169098795*^9}, {3.794849228716406*^9, 
+   3.794849252422182*^9}, 3.794849657117385*^9, 3.794849843831176*^9, 
+   3.794849966195765*^9, 3.794850097672338*^9, {3.794850149236228*^9, 
+   3.79485017078468*^9}, {3.794850225000383*^9, 3.7948502324711313`*^9}},
+ CellLabel->
+  "Out[336]//TableForm=",ExpressionUUID->"c5fa1b6b-2f07-43c2-9f2e-\
+2ca5e30d4f66"],
+
+Cell[BoxData[
+ GraphicsBox[RasterBox[CompressedData["
+1:eJwBlQFq/iFib1JlAwAAAAQAAAAEAAAAAwAAAIzU2epDkNw/FvLv/gGX6T+v
+/D7K5FLcP0YBgBVvxNQ/0Z6Guo5G6D/fq2HJqHzePw5ojvOcleQ/jLlWHIlD
+6z8VUMG6eVrZP7EFKX1CjOg//+TRsTfu6z/0c6MLfAbYP5xDqFQ+reI/q2W+
+CWLx6j+E6tqyHv7ZP//YS73dRN4/LQQ2/g/d6T956wd7HtvbP5S10VSyk9c/
+/CROIi3K6D/HYMa2GbHdP+VrDvWJIec/HcqnijOx6z/oh4izBoDYP1DEIoYd
+Ru0/FxIwury57D89uhEWFXHWPw1g6QCcndM/nP8emFbd5z/6AVnO1ePePwzr
+aExe7c8/XoU4xKyP5j+JYrVighXgP/6mNhMeIuw/VfN5LZ6I7D9LGtcI7dLW
+P3FW9nFk1eU/i8kJCVR56z+wE7GnUu/YP4CcBhNd1d8/9slF/VId6j/wHxq0
+P23bPyK4LJsZy9k/bVjWBzgl6T+HyjUxcRXdP9AHE6Dil+E/AeE6RA+n6j+q
+dxEewoHaP9E/xSo=
+   "], {{0, 0}, {4, 4}}, {0, 1}],
+  Frame->True,
+  FrameLabel->{None, None},
+  FrameTicks->{{{{3.5, 
+       FormBox["1", TraditionalForm]}, {2.5, 
+       FormBox["2", TraditionalForm]}, {1.5, 
+       FormBox["3", TraditionalForm]}, {0.5, 
+       FormBox["4", TraditionalForm]}}, {{3.5, 
+       FormBox["1", TraditionalForm]}, {2.5, 
+       FormBox["2", TraditionalForm]}, {1.5, 
+       FormBox["3", TraditionalForm]}, {0.5, 
+       FormBox["4", TraditionalForm]}}}, {{{0.5, 
+       FormBox["1", TraditionalForm]}, {1.5, 
+       FormBox["2", TraditionalForm]}, {2.5, 
+       FormBox["3", TraditionalForm]}, {3.5, 
+       FormBox["4", TraditionalForm]}}, {{0.5, 
+       FormBox["1", TraditionalForm]}, {1.5, 
+       FormBox["2", TraditionalForm]}, {2.5, 
+       FormBox["3", TraditionalForm]}, {3.5, 
+       FormBox["4", TraditionalForm]}}}},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImageSize->Small,
+  Method->{
+   "AxisPadding" -> Scaled[0.02], "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultPlotStyle" -> 
+    Automatic, "DomainPadding" -> Scaled[0.02], "RangePadding" -> 
+    Scaled[0.05]}]], "Output",
+ CellChangeTimes->{{3.794848512352137*^9, 3.794848523932518*^9}, {
+   3.794848595998178*^9, 3.794848618259313*^9}, 3.7948486560112963`*^9, 
+   3.7948486996088943`*^9, {3.794849008521976*^9, 3.794849034847649*^9}, {
+   3.794849148220264*^9, 3.794849169098795*^9}, {3.794849228716406*^9, 
+   3.794849252422182*^9}, 3.794849657117385*^9, 3.794849843831176*^9, 
+   3.794849966195765*^9, 3.794850097672338*^9, {3.794850149236228*^9, 
+   3.79485017078468*^9}, {3.794850225000383*^9, 3.794850232513398*^9}},
+ CellLabel->
+  "Out[337]=",ExpressionUUID->"579cbaf1-647e-4ba0-b16a-769598aa48c6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"n", "=", "2"}], ";", " ", 
+  RowBox[{"(*", 
+   RowBox[{"Markov", " ", "Chain", " ", "Order"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{"F", "=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"x", "//", "Flatten"}], "//", "DeleteDuplicates"}], "//", 
+    "Sort"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"G", "=", 
+   RowBox[{"Map", "[", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"StringJoin", "[", "#", "]"}], "&"}], ",", 
+     RowBox[{"Tuples", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"x", "//", "Flatten"}], "//", "DeleteDuplicates"}], "//", 
+        "Sort"}], ",", "n"}], "]"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"TableForm", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"probM", "[", 
+     RowBox[{"x", ",", "n"}], "]"}], "//", "N"}], ",", 
+   RowBox[{"TableHeadings", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{"G", ",", "F"}], "}"}]}]}], "]"}], "\[IndentingNewLine]", 
+ RowBox[{"MatrixPlot", "[", 
+  RowBox[{
+   RowBox[{"probM", "[", 
+    RowBox[{"x", ",", "n"}], "]"}], ",", 
+   RowBox[{"ImageSize", "\[Rule]", "Small"}], ",", 
+   RowBox[{"ColorFunction", "\[Rule]", "\"\<BlueGreenYellow\>\""}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.79485025223332*^9, 3.794850252321656*^9}},
+ CellLabel->
+  "In[338]:=",ExpressionUUID->"a4ec0791-d936-4952-807c-d154eacd375f"],
+
+Cell[BoxData[
+ TagBox[
+  TagBox[GridBox[{
+     {
+      StyleBox["\[Null]",
+       ShowStringCharacters->False], 
+      TagBox["\<\"A\"\>",
+       HoldForm], 
+      TagBox["\<\"C\"\>",
+       HoldForm], 
+      TagBox["\<\"G\"\>",
+       HoldForm], 
+      TagBox["\<\"T\"\>",
+       HoldForm]},
+     {
+      TagBox["\<\"AA\"\>",
+       HoldForm], "0.30294585987261147`", "0.21377388535031847`", 
+      "0.22372611464968153`", "0.25955414012738853`"},
+     {
+      TagBox["\<\"AC\"\>",
+       HoldForm], "0.39413845376452755`", "0.19656392117230925`", 
+      "0.07832238504295098`", "0.3309752400202122`"},
+     {
+      TagBox["\<\"AG\"\>",
+       HoldForm], "0.3070776255707763`", "0.1997716894977169`", 
+      "0.2374429223744292`", "0.2557077625570776`"},
+     {
+      TagBox["\<\"AT\"\>",
+       HoldForm], "0.17754919499105545`", "0.15026833631484796`", 
+      "0.3470483005366726`", "0.32513416815742396`"},
+     {
+      TagBox["\<\"CA\"\>",
+       HoldForm], "0.3300090661831369`", "0.2184950135992747`", 
+      "0.20081595648232095`", "0.25067996373526746`"},
+     {
+      TagBox["\<\"CC\"\>",
+       HoldForm], "0.40615384615384614`", "0.14564102564102563`", 
+      "0.09333333333333334`", "0.3548717948717949`"},
+     {
+      TagBox["\<\"CG\"\>",
+       HoldForm], "0.24471830985915494`", "0.23415492957746478`", 
+      "0.1443661971830986`", "0.3767605633802817`"},
+     {
+      TagBox["\<\"CT\"\>",
+       HoldForm], "0.254221816522136`", "0.16293929712460065`", 
+      "0.2565038795070744`", "0.32633500684618894`"},
+     {
+      TagBox["\<\"GA\"\>",
+       HoldForm], "0.2702380952380952`", "0.21845238095238095`", 
+      "0.23511904761904762`", "0.2761904761904762`"},
+     {
+      TagBox["\<\"GC\"\>",
+       HoldForm], "0.29937194696441033`", "0.16329378925331473`", 
+      "0.10327983251919051`", "0.43405443126308446`"},
+     {
+      TagBox["\<\"GG\"\>",
+       HoldForm], "0.2892768079800499`", "0.24355777223607647`", 
+      "0.1230257689110557`", "0.34413965087281795`"},
+     {
+      TagBox["\<\"GT\"\>",
+       HoldForm], "0.2340994120791021`", "0.15873864243719935`", 
+      "0.29396044895777657`", "0.31320149652592194`"},
+     {
+      TagBox["\<\"TA\"\>",
+       HoldForm], "0.2739067755886593`", "0.2849591542527631`", 
+      "0.1691494473810668`", "0.2719846227775108`"},
+     {
+      TagBox["\<\"TC\"\>",
+       HoldForm], "0.38699291693496457`", "0.13522215067611076`", 
+      "0.11204121056020605`", "0.3657437218287186`"},
+     {
+      TagBox["\<\"TG\"\>",
+       HoldForm], "0.24587087087087087`", "0.24662162162162163`", 
+      "0.20908408408408408`", "0.29842342342342343`"},
+     {
+      TagBox["\<\"TT\"\>",
+       HoldForm], "0.2421792618629174`", "0.19789103690685414`", 
+      "0.27275922671353253`", "0.287170474516696`"}
+    },
+    GridBoxAlignment->{"Columns" -> {{Left}}, "Rows" -> {{Baseline}}},
+    GridBoxDividers->{
+     "Columns" -> {False, True, {False}, False}, 
+      "Rows" -> {False, True, {False}, False}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[2.0999999999999996`]}, 
+        Offset[0.27999999999999997`]}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}}],
+   {OutputFormsDump`HeadedRows, OutputFormsDump`HeadedColumns}],
+  Function[BoxForm`e$, 
+   TableForm[
+   BoxForm`e$, 
+    TableHeadings -> {{
+      "AA", "AC", "AG", "AT", "CA", "CC", "CG", "CT", "GA", "GC", "GG", "GT", 
+       "TA", "TC", "TG", "TT"}, {"A", "C", "G", "T"}}]]]], "Output",
+ CellChangeTimes->{3.79485025293285*^9},
+ CellLabel->
+  "Out[340]//TableForm=",ExpressionUUID->"87aaeeab-a98d-4126-9097-\
+b55a3a034802"],
+
+Cell[BoxData[
+ GraphicsBox[RasterBox[CompressedData["
+1:eJwVlHk81YkCxa80kWTpZTK98SEThXvRtDwK5z0jz7XWJb2eNmqofMY+0aKn
+qMvwlKWRZMmMW7xCTWlwvcqzpAXdxd0Xy11+93ebwf1EpXjmj/P5nL/O5/zx
+PWddXDLjW2MKhWK1qKWL+sN/sPxvf1KXFDgrifhbDQFjuvJ+TqAU5wfmL7Ep
+I1hXzn+fV6BFs1N4eoO9HIzvc3wph0ZBr3OzHCzX4euBAyve1YkRlngrOPfy
+GIqLndpj9ToEBl0wsTEVg7WVNbfbRI6CrwO0HlwCfznWyqXoJXB9pOq7nyRH
+d4F5RN84gYTJM7U/D0kQzzjjUnpPgLWxT755N6gFn13B0tyWwf3vC/f8u8dh
+0M1lzNmT+PJJLifkpgjnXm1y7H6kw9XnlZWNIXqcD9zR9I9QAU7UBdFKvV+j
+9J+X/6ddooEhxKP5sw4F3P/Ddd45PYQy9WxL0RU1yn47WbnaRomb7RK/oW8J
+ZJ346D28Sg/WJ/7eH7sESHNvaTx+dRTuOWXrA1g6EG/OJNjlimGnHu+J9BuD
+uKFzKkuqQ47d0GCysxicz5SK5AUuYtc6p/2VokW9e2R+5VM5PjZumnJyG8UP
+5Jptrnk6OLyZ9UnsEsOHqD0IsRi0+E0v23cRiHpbWGXxQooOhhe8DBzU9h3y
+YdZpsGV1wshJewUanzMvfrFnHHVxR0trVpIIebq1X9ErgqeDS43VPhXGuBlL
+TxwlcSD9cO2crQgzpkvfvVCN4fGa7BTVBx1uZF8560aK8Oxnq5Xf0WTwi3xU
+4d1KoCFkPKN/gxQHjnAeWpcPY+Pp7veCfjWK07OHJw0KTNoM7Cgf1OCHtF92
+RQySMMGQ7YpAITaQMbbhKyfQHPTApYpKoqfY9phzvgh+RS1d20u4KE/UXSSF
+GtAtQLhq5XCkxDjTxgdxLjm0mXpYDcbdzn0vqUrs6nG8ZBf4BmtWeXaw2/Xw
+7bD+3CZ1BMeybkfXTSqxttzsVFyqDuc+xNGYMjHcWYZeul6I6uANv2YaEeg+
+mO9ewpChin3b7Gi9BKZU0cxICoHjn97WOpdLsTl8RFnDHUX4fsr97R06JEV9
+zp47LEZB+97rziUK/FJWuTJ2lQ7NRKv/zL8kYHtY3JlncNHJNVx+2K1B5e68
+tOlPi/zniRGxVQkNc69i51YdHt4wLwwLkOBq6z3PHfvVEFiOti25QiLfn2W0
+vlsIk+RjzO+uyxA8WbTQ9pTAviafUOVyKUYqCuttvCRweNYY9OwQgQs9tFO7
+7kmRctcqM6PnNZafbrt1aosGR5YYtiUWKNDnJ8qoWOxHzaeMKz30cDWnK1tz
+BRDnmmUmvyXRtXpm/ovzeii4iaRqdATUPTOOj8w42O+rUhaFaTDRN3+Ll6LA
+6wLOg+OPX8H8HZH2JVUNG687KyIDldgUUuqS3KFFTVaG08fFvHprt6+MZwVQ
+fTLldT5VY9h75yubmySMXmyZd6gTglcS3TtNF8EjwHPqnBWBiymhmQovGQpj
+mZPLxkfQkMLw4N3V4obx1PqSURmkVYLZTGMFbFUW/g1zBFqygwt5LAli2ZP/
+5uXykCSIisrx0OKxgVMcUCZHk0eO+bYkDq6zhh0tUzVIrXj++5JwBYiz4scs
+qhZkdXySo3yRt05++kVnIfp6Rd1sCzWS+HLm+wskNtckM/8sFeLOWd5Uv2QC
+UQcUQ9ERJLhNqJ/xFyG8z8ZQkzmCsKgHjGs3tHjGbPA1XZCBmh5UHWMvxYNl
+SpeJPAIbH3r7yFOlCIre7hJhpIQDvUV1df3i3n9vyOIflsB+96Unb/1ICNre
+qBPiFv8n4IjKzF6Amfiq12klfIjtuE2NmVpcczu9keYnxxUi0oTxzUvs8Wzc
+TNeqENpOtS5PUOJQb+Aag7kG68Imxth3SRz5QBvVXxLiGkcl4adOYGxfdVye
+L4nvlfEDJ+NFGIzhcY0ihCia/pW2Q6tFzMDwbFu2DNWUkxuHfxPhRyfrhWlX
+Ak+E0X9qWCFD+Inly/qzlOCHHyzSB+uw/ydLS7q9BP8HPQce/Q==
+   "], {{0, 0}, {4, 
+   16}}, {0, 1}],
+  Frame->True,
+  FrameLabel->{None, None},
+  FrameTicks->{{{{15.5, 
+       FormBox["1", TraditionalForm]}, {11.5, 
+       FormBox["5", TraditionalForm]}, {6.5, 
+       FormBox["10", TraditionalForm]}, {0.5, 
+       FormBox["16", TraditionalForm]}}, {{15.5, 
+       FormBox["1", TraditionalForm]}, {11.5, 
+       FormBox["5", TraditionalForm]}, {6.5, 
+       FormBox["10", TraditionalForm]}, {0.5, 
+       FormBox["16", TraditionalForm]}}}, {{{0.5, 
+       FormBox["1", TraditionalForm]}, {1.5, 
+       FormBox["2", TraditionalForm]}, {2.5, 
+       FormBox["3", TraditionalForm]}, {3.5, 
+       FormBox["4", TraditionalForm]}}, {{0.5, 
+       FormBox["1", TraditionalForm]}, {1.5, 
+       FormBox["2", TraditionalForm]}, {2.5, 
+       FormBox["3", TraditionalForm]}, {3.5, 
+       FormBox["4", TraditionalForm]}}}},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  ImageSize->{209.03206219059405`, Automatic},
+  Method->{
+   "AxisPadding" -> Scaled[0.02], "DefaultBoundaryStyle" -> Automatic, 
+    "DefaultGraphicsInteraction" -> {
+     "Version" -> 1.2, "TrackMousePosition" -> {True, False}, 
+      "Effects" -> {
+       "Highlight" -> {"ratio" -> 2}, "HighlightPoint" -> {"ratio" -> 2}, 
+        "Droplines" -> {
+         "freeformCursorMode" -> True, 
+          "placement" -> {"x" -> "All", "y" -> "None"}}}}, "DefaultPlotStyle" -> 
+    Automatic, "DomainPadding" -> Scaled[0.02], "RangePadding" -> 
+    Scaled[0.05]}]], "Output",
+ CellChangeTimes->{3.7948502529810753`*^9},
+ CellLabel->
+  "Out[341]=",ExpressionUUID->"b931a49c-3140-4893-977b-cd2dfa101d7f"]
+}, Open  ]]
+},
+WindowSize->{1090, 710},
+WindowMargins->{{Automatic, 119}, {39, Automatic}},
+FrontEndVersion->"12.0 for Mac OS X x86 (64-bit) (April 8, 2019)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 41620, 573, 10594, "Input",ExpressionUUID->"1833a14a-5e27-43bc-8b44-d7e0f3212a16"],
+Cell[CellGroupData[{
+Cell[42203, 597, 681, 18, 30, "Input",ExpressionUUID->"8b5bcb65-ecd7-4771-90cc-6a94412b79e2"],
+Cell[42887, 617, 231, 4, 34, "Output",ExpressionUUID->"d70da712-f7fc-414a-87fc-2a418cb016c7"]
+}, Open  ]],
+Cell[43133, 624, 419, 12, 30, "Input",ExpressionUUID->"4badc421-86ae-4138-b4b5-dbec09835fed"],
+Cell[43555, 638, 4054, 113, 220, "Input",ExpressionUUID->"f0a3eb3d-207c-457f-8699-970b4c6eaa27"],
+Cell[CellGroupData[{
+Cell[47634, 755, 2664, 65, 157, "Input",ExpressionUUID->"15e7b57a-3cb4-4af3-84cd-6c6902e7db89"],
+Cell[50301, 822, 2150, 57, 112, "Output",ExpressionUUID->"c5fa1b6b-2f07-43c2-9f2e-2ca5e30d4f66"],
+Cell[52454, 881, 2647, 54, 211, "Output",ExpressionUUID->"579cbaf1-647e-4ba0-b16a-769598aa48c6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[55138, 940, 1368, 41, 115, "Input",ExpressionUUID->"a4ec0791-d936-4952-807c-d154eacd375f"],
+Cell[56509, 983, 3626, 100, 316, "Output",ExpressionUUID->"87aaeeab-a98d-4126-9097-b55a3a034802"],
+Cell[60138, 1085, 3730, 73, 782, "Output",ExpressionUUID->"b931a49c-3140-4893-977b-cd2dfa101d7f"]
+}, Open  ]]
+}
+]
+*)
+
